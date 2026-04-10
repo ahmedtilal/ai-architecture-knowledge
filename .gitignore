@@ -1,0 +1,10 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs (implementation artifacts, not part of the wiki)
+docs/
