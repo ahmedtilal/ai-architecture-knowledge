@@ -174,6 +174,29 @@ Triggered when the user says "lint the wiki", "health check", or "maintenance".
 
 Report findings. Fix what can be fixed automatically (e.g., add missing cross-references). Flag what needs user input (e.g., resolving contradictions, deciding whether to create a page for a borderline entity).
 
+### Prune
+
+Triggered when the user says "prune the wiki", "clean up", or "consolidate pages".
+
+**Workflow:**
+
+1. **Identify low-value pages:** Find entity and theme pages with `source_count: 1` that haven't been updated since creation. These are candidates for removal — their content can be folded back into the source summary that spawned them.
+2. **Find overlapping pages:** Identify near-duplicate or highly overlapping pages (e.g., "Meditation" and "Mindfulness") that should be merged into one.
+3. **Clean up dead references:** Find wikilinks pointing to pages that don't exist, and stale entries in `index.md` for removed pages.
+4. **Present all proposed changes to the user for confirmation.** Group by type:
+   - Pages to delete (with reason)
+   - Pages to merge (showing what gets combined into what)
+   - Dead wikilinks to fix
+   - Index entries to clean up
+5. After user confirms (all or selectively), execute approved changes:
+   - Delete approved pages
+   - Merge approved page pairs — combine content into the surviving page, update all inbound wikilinks across the wiki to point to the surviving page
+   - Remove or fix dead wikilinks
+   - Update `index.md`
+   - Append a structured entry to `log.md`
+
+**Key rule:** Prune is destructive. Never act without user confirmation. Present proposed changes as a list the user can approve or reject individually.
+
 ## Conventions
 
 ### Naming
@@ -210,7 +233,7 @@ Each entry in `log.md`:
 - Pages updated: [[Page Three]], [[Page Four]]
 ```
 
-Operation types: `init`, `ingest`, `query`, `lint`, `update`.
+Operation types: `init`, `ingest`, `query`, `lint`, `prune`, `update`.
 
 ### Index Format
 
