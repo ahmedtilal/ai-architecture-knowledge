@@ -1,7 +1,7 @@
 ---
 title: "AI-First Engineering"
 type: theme
-source_count: 4
+source_count: 5
 tags: [ai-first-engineering, harness-engineering, engineering-management, software-development]
 ---
 
@@ -39,6 +39,10 @@ A key contribution is the concept of **resolvers** — routing tables that load 
 
 The most novel idea is **self-improving skills**: after an event, a skill reads NPS surveys, diarizes mediocre responses, extracts patterns, and writes new rules back into the skill files. The next run uses them automatically. At YC, this reduced "OK" ratings from 12% to 4%. Skills become permanent upgrades that never degrade and automatically improve when models improve.
 
+Tan's follow-up ([[Resolvers: The Routing Table for Intelligence]]) deepens the operational reality of maintaining AI-first systems at scale. The core insight is that **agent systems are organizations** — skills are employees, the resolver is the org chart, filing rules are internal process, and the whole thing requires active governance. Without it, systems experience **context rot**: resolvers decay within ~90 days as new skills are added without updating routing, trigger descriptions drift from actual user phrasing, and the routing table becomes a historical artifact rather than a live system.
+
+Concrete maintenance infrastructure includes: **trigger evals** (test suites of sample inputs with expected skill outputs), **check-resolvable** (a meta-skill that audits reachability — found 15% of capabilities were "dark" in Tan's 40+ skill system), and shared filing rules mandating every skill consult the resolver before writing. The endgame is self-healing resolvers that learn from observed task dispatch traffic via reinforcement learning. This directly addresses the question of how AGENTS.md configurations evolve: they must be actively maintained, tested, and eventually self-correcting.
+
 ## Contradictions
 
 _None identified._
@@ -49,8 +53,8 @@ _None identified._
 - What happens when the Architect becomes a bottleneck — is there a way to distribute that role?
 - How do you handle the senior engineer transition without losing institutional knowledge?
 - Is "vibe coding" (prompting until something works) ever appropriate, or always an anti-pattern in production systems?
-- How do AGENTS.md and MCP configurations evolve as agent capabilities improve — do they become simpler or more complex over time?
 - How do self-improving skill loops avoid drift — what prevents compounding rule additions from degrading skill quality over time?
+- What does the RL loop for self-healing resolvers look like in practice — how much traffic data is needed, and how do you prevent the resolver from over-fitting to recent patterns?
 
 ## Sources
 
@@ -58,3 +62,4 @@ _None identified._
 - [[How Index Built an AI-First Data Analytics Platform with Mastra]]
 - [[Building an AI-Native Engineering Team – Codex]]
 - [[Thin Harness, Fat Skills]]
+- [[Resolvers: The Routing Table for Intelligence]]

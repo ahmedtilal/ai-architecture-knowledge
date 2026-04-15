@@ -1,7 +1,7 @@
 ---
 title: "AI Agents"
 type: theme
-source_count: 4
+source_count: 5
 tags: [ai-agents, autonomous-systems, agent-platforms]
 ---
 
@@ -39,6 +39,14 @@ Tan's **skill files** formalize how to encode agent capabilities: markdown docum
 
 The most novel pattern is **self-improving agents**: after execution, a skill reads outcome data (NPS surveys), diarizes mediocre results, extracts patterns, and rewrites its own rules. The next run incorporates the lessons automatically.
 
+Tan's follow-up ([[Resolvers: The Routing Table for Intelligence]]) reveals the failure modes that emerge at scale (40+ skills, 25,000 files, 200 inputs/day). The most insidious is not hallucination but **silent drift**: information filed in the wrong place, connections that don't form, knowledge bases that gradually become junk drawers. An audit found only 3 of 13 brain-writing skills consulted the resolver — the other 10 had hardcoded paths.
+
+**Dark capabilities** are another failure mode: skills that exist but can't be reached because the resolver doesn't know about them. 15% of Tan's system's capabilities were unreachable. This is worse than missing capabilities because it creates an illusion of competence. The fix is `check-resolvable` — a meta-skill that walks AGENTS.md → skill file → code weekly to find dead links.
+
+**Context rot** describes how resolvers decay: within ~90 days, new skills are added without updating routing, trigger descriptions drift from how users actually phrase requests, and the system works only because the operator manually invokes skills by name. Tan proposes self-healing resolvers powered by RL on task dispatch traffic as the endgame for agent governance.
+
+Resolvers are **fractal** — they compose at every layer: skill resolvers (AGENTS.md maps tasks to skills), filing resolvers (RESOLVER.md maps content to directories), and context resolvers (internal routing within each skill). Claude Code already implements this pattern: every skill's description field is itself a resolver.
+
 ## Contradictions
 
 _None identified._
@@ -50,7 +58,7 @@ _None identified._
 - What is the reliability ceiling for self-healing loops — do they converge or oscillate?
 - How does persistent memory across agent sessions work in practice, and what are the risks of stale context?
 - How does the 7-month doubling rate for sustained reasoning hold up — is it accelerating, plateauing, or task-dependent?
-- How do self-improving skill loops avoid drift — can compounding rule additions degrade quality without human pruning?
+- What does the RL loop for self-healing resolvers look like in practice — how much traffic is needed before the resolver can meaningfully self-correct?
 
 ## Sources
 
@@ -58,3 +66,4 @@ _None identified._
 - [[How Index Built an AI-First Data Analytics Platform with Mastra]]
 - [[Building an AI-Native Engineering Team – Codex]]
 - [[Thin Harness, Fat Skills]]
+- [[Resolvers: The Routing Table for Intelligence]]
