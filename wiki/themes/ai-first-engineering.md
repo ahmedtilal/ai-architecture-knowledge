@@ -1,7 +1,7 @@
 ---
 title: "AI-First Engineering"
 type: theme
-source_count: 2
+source_count: 3
 tags: [ai-first-engineering, harness-engineering, engineering-management, software-development]
 ---
 
@@ -25,6 +25,12 @@ Pang also argues that AI-first must extend beyond engineering into every functio
 
 Framework choice is a practical dimension of AI-first engineering: Index's switch from LangChain to Mastra for TypeScript-native type safety and opinionated design patterns reflects the principle that the harness around agents matters. An opinionated framework that reduces cognitive load aligns with the harness engineering concept — the developer's job is to direct agents, not fight infrastructure.
 
+[[OpenAI]]'s guide ([[Building an AI-Native Engineering Team – Codex]]) operationalizes AI-first engineering across the full SDLC with a structured **Delegate / Review / Own** framework. This formalizes what CREAO discovered organically: the engineer's role shifts from implementer to reviewer, editor, and source of direction. The agent is the first-pass builder; the human owns architecture, product intent, and quality judgment.
+
+OpenAI identifies concrete infrastructure for AI-first teams: **MCP servers** connect agents to external systems (issue trackers, design tools, logging, deployment), and **AGENTS.md** files provide persistent configuration for agent behavior and guardrails. This is the practical tooling layer that makes harness engineering actionable — not just a philosophy but a set of integration patterns.
+
+Internally, OpenAI reports that development cycles that took weeks now take days, and routine tasks (dependency maintenance, feature flag cleanup, documentation) are fully delegated to Codex. This aligns with CREAO's experience of 99%+ AI-written code, though OpenAI frames it through the lens of a larger organization where engineers still own critical decisions rather than a small team where one architect directs everything.
+
 ## Contradictions
 
 _None identified._
@@ -35,8 +41,10 @@ _None identified._
 - What happens when the Architect becomes a bottleneck — is there a way to distribute that role?
 - How do you handle the senior engineer transition without losing institutional knowledge?
 - Is "vibe coding" (prompting until something works) ever appropriate, or always an anti-pattern in production systems?
+- How do AGENTS.md and MCP configurations evolve as agent capabilities improve — do they become simpler or more complex over time?
 
 ## Sources
 
 - [[Chat to Create AI Agents Ready to Work for You]]
 - [[How Index Built an AI-First Data Analytics Platform with Mastra]]
+- [[Building an AI-Native Engineering Team – Codex]]

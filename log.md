@@ -19,3 +19,9 @@ Chronological record of all wiki operations. Each entry uses the format `## [YYY
 - Source: `raw/articles/How Index Built an AI-First Data Analytics Platform with Mastra.md`
 - Pages created: [[How Index Built an AI-First Data Analytics Platform with Mastra]], [[Index]], [[Mastra]]
 - Pages updated: [[AI Agents]], [[AI-First Engineering]]
+
+## [2026-04-15] ingest | Building an AI-Native Engineering Team – Codex
+
+- Source: `raw/articles/Building an AI-Native Engineering Team – Codex.md`
+- Pages created: [[Building an AI-Native Engineering Team – Codex]], [[OpenAI]]
+- Pages updated: [[AI Agents]], [[AI-First Engineering]]

@@ -1,7 +1,7 @@
 ---
 title: "AI Agents"
 type: theme
-source_count: 2
+source_count: 3
 tags: [ai-agents, autonomous-systems, agent-platforms]
 ---
 
@@ -25,6 +25,12 @@ A key enabler is **schema-aware agents**: Index's data access layer generates a 
 
 The choice of agent framework matters practically: Index found that TypeScript-native frameworks like [[Mastra]] with strong type safety and built-in playgrounds significantly accelerated development compared to Python-first frameworks with TypeScript bindings (LangChain).
 
+[[OpenAI]]'s guide ([[Building an AI-Native Engineering Team – Codex]]) provides the broadest view of coding agents across the full SDLC. They frame agent capability through a concrete benchmark: METR found frontier models sustaining **2 hours 17 minutes** of continuous reasoning (as of August 2025), with task length doubling every ~7 months. This trajectory means agents can now produce full features end-to-end — data models, APIs, UI, tests, and documentation — in a single coordinated run.
+
+OpenAI structures agent involvement across seven SDLC phases (Plan, Design, Build, Test, Review, Document, Deploy & Maintain) using a consistent **Delegate / Review / Own** framework. In each phase, agents handle first-pass mechanical work while engineers shift to architecture, product intent, and quality judgment. Key infrastructure patterns include **MCP servers** as the integration layer connecting agents to issue trackers, design tools, logging, and deployment systems, and **AGENTS.md** files as persistent configuration for agent behavior and guardrails.
+
+A notable insight on testing: as agents remove barriers to code generation, tests become *more* important as the source of truth agents iterate against. OpenAI also recommends using models specifically trained for code review rather than general-purpose models, which tend to nitpick with low signal-to-noise ratio.
+
 ## Contradictions
 
 _None identified._
@@ -35,8 +41,10 @@ _None identified._
 - How do agent systems handle novel problems that don't fit established patterns?
 - What is the reliability ceiling for self-healing loops — do they converge or oscillate?
 - How does persistent memory across agent sessions work in practice, and what are the risks of stale context?
+- How does the 7-month doubling rate for sustained reasoning hold up — is it accelerating, plateauing, or task-dependent?
 
 ## Sources
 
 - [[Chat to Create AI Agents Ready to Work for You]]
 - [[How Index Built an AI-First Data Analytics Platform with Mastra]]
+- [[Building an AI-Native Engineering Team – Codex]]
