@@ -1,7 +1,7 @@
 ---
 title: "AI Agents"
 type: theme
-source_count: 3
+source_count: 4
 tags: [ai-agents, autonomous-systems, agent-platforms]
 ---
 
@@ -31,6 +31,14 @@ OpenAI structures agent involvement across seven SDLC phases (Plan, Design, Buil
 
 A notable insight on testing: as agents remove barriers to code generation, tests become *more* important as the source of truth agents iterate against. OpenAI also recommends using models specifically trained for code review rather than general-purpose models, which tend to nitpick with low signal-to-noise ratio.
 
+[[Garry Tan]] ([[Thin Harness, Fat Skills]]) introduces several agent design principles. The most fundamental is the **latent vs. deterministic** distinction: every step in an agent system must be classified as either latent (judgment, synthesis, pattern recognition) or deterministic (same input, same output). Confusing the two is "the most common mistake in agent design" — an LLM can seat 8 dinner guests accounting for social dynamics, but seating 800 requires combinatorial optimization that belongs in deterministic code.
+
+Tan's **skill files** formalize how to encode agent capabilities: markdown documents that describe a *process* (not a task), working like method calls with parameters. The same `/investigate` skill with different arguments produces a medical research analyst or a forensic financial investigator. **Resolvers** route context on demand — loading the right document when the right task appears, rather than front-loading everything into the prompt.
+
+**Diarization** is presented as the capability that makes AI genuinely useful for knowledge work: the model reads all sources about a subject and writes a structured profile, holding contradictions in mind and synthesizing intelligence. "No SQL query produces this. No RAG pipeline produces this." In practice at YC, diarization caught that a founder claiming "Datadog for AI agents" was actually building a FinOps tool (80% of commits in the billing module) — a gap no embedding search would find.
+
+The most novel pattern is **self-improving agents**: after execution, a skill reads outcome data (NPS surveys), diarizes mediocre results, extracts patterns, and rewrites its own rules. The next run incorporates the lessons automatically.
+
 ## Contradictions
 
 _None identified._
@@ -42,9 +50,11 @@ _None identified._
 - What is the reliability ceiling for self-healing loops — do they converge or oscillate?
 - How does persistent memory across agent sessions work in practice, and what are the risks of stale context?
 - How does the 7-month doubling rate for sustained reasoning hold up — is it accelerating, plateauing, or task-dependent?
+- How do self-improving skill loops avoid drift — can compounding rule additions degrade quality without human pruning?
 
 ## Sources
 
 - [[Chat to Create AI Agents Ready to Work for You]]
 - [[How Index Built an AI-First Data Analytics Platform with Mastra]]
 - [[Building an AI-Native Engineering Team – Codex]]
+- [[Thin Harness, Fat Skills]]

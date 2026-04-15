@@ -25,3 +25,9 @@ Chronological record of all wiki operations. Each entry uses the format `## [YYY
 - Source: `raw/articles/Building an AI-Native Engineering Team – Codex.md`
 - Pages created: [[Building an AI-Native Engineering Team – Codex]], [[OpenAI]]
 - Pages updated: [[AI Agents]], [[AI-First Engineering]]
+
+## [2026-04-15] ingest | Thin Harness, Fat Skills
+
+- Source: `raw/articles/Thin Harness, Fat Skills.md`
+- Pages created: [[Thin Harness, Fat Skills]], [[Garry Tan]]
+- Pages updated: [[AI Agents]], [[AI-First Engineering]]

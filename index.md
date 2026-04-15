@@ -7,10 +7,12 @@ A catalog of all pages in the wiki, organized by type.
 - [[Chat to Create AI Agents Ready to Work for You]] — CREAO CTO describes rebuilding entire engineering process around AI as the primary builder
 - [[Building an AI-Native Engineering Team – Codex]] — OpenAI's guide to AI-native engineering across the full SDLC with Delegate/Review/Own framework
 - [[How Index Built an AI-First Data Analytics Platform with Mastra]] — BI platform with 1,000+ customers adds conversational agent layer using Mastra's supervisor agent architecture
+- [[Thin Harness, Fat Skills]] — Garry Tan's architectural pattern: push intelligence into markdown skills, keep the harness minimal, self-improving loops
 
 ## Entities
 
 - [[CREAO]] — AI agent platform company, 25 employees, went fully AI-first with 99%+ AI-written code
+- [[Garry Tan]] — YC president, developed "thin harness, fat skills" architectural pattern for agent systems
 - [[Index]] — BI platform with 1,000+ customers adding AI-powered conversational data analytics
 - [[Mastra]] — TypeScript-native AI agent framework with built-in playground and opinionated workflows
 - [[OpenAI]] — AI research company and developer of Codex, practitioner of AI-native engineering

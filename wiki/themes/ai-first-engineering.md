@@ -1,7 +1,7 @@
 ---
 title: "AI-First Engineering"
 type: theme
-source_count: 3
+source_count: 4
 tags: [ai-first-engineering, harness-engineering, engineering-management, software-development]
 ---
 
@@ -31,6 +31,14 @@ OpenAI identifies concrete infrastructure for AI-first teams: **MCP servers** co
 
 Internally, OpenAI reports that development cycles that took weeks now take days, and routine tasks (dependency maintenance, feature flag cleanup, documentation) are fully delegated to Codex. This aligns with CREAO's experience of 99%+ AI-written code, though OpenAI frames it through the lens of a larger organization where engineers still own critical decisions rather than a small team where one architect directs everything.
 
+[[Garry Tan]] ([[Thin Harness, Fat Skills]]) provides the most architecturally prescriptive pattern yet: **thin harness, fat skills**. The principle is directional — push intelligence up into markdown skill files, push execution down into deterministic tooling, keep the harness minimal (~200 lines). This concretizes harness engineering into a three-layer architecture: fat skills on top (90% of value), thin CLI harness in the middle, deterministic application on the bottom.
+
+Tan argues the productivity gap (2x vs. 100x, per Steve Yegge) comes entirely from architecture, not model intelligence — the same model produces radically different outcomes depending on the harness. The anti-pattern is a "fat harness with thin skills": 40+ tool definitions eating half the context window, slow MCP round-trips, REST API wrappers. Instead, he advocates purpose-built tooling that's fast and narrow.
+
+A key contribution is the concept of **resolvers** — routing tables that load the right context on demand rather than front-loading everything into the prompt. Tan shrank his own CLAUDE.md from 20,000 lines to ~200 lines of pointers. This addresses a practical problem all AI-first teams face: how to give agents access to institutional knowledge without drowning them in context.
+
+The most novel idea is **self-improving skills**: after an event, a skill reads NPS surveys, diarizes mediocre responses, extracts patterns, and writes new rules back into the skill files. The next run uses them automatically. At YC, this reduced "OK" ratings from 12% to 4%. Skills become permanent upgrades that never degrade and automatically improve when models improve.
+
 ## Contradictions
 
 _None identified._
@@ -42,9 +50,11 @@ _None identified._
 - How do you handle the senior engineer transition without losing institutional knowledge?
 - Is "vibe coding" (prompting until something works) ever appropriate, or always an anti-pattern in production systems?
 - How do AGENTS.md and MCP configurations evolve as agent capabilities improve — do they become simpler or more complex over time?
+- How do self-improving skill loops avoid drift — what prevents compounding rule additions from degrading skill quality over time?
 
 ## Sources
 
 - [[Chat to Create AI Agents Ready to Work for You]]
 - [[How Index Built an AI-First Data Analytics Platform with Mastra]]
 - [[Building an AI-Native Engineering Team – Codex]]
+- [[Thin Harness, Fat Skills]]
