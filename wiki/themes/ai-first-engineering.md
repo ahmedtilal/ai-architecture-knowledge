@@ -1,7 +1,7 @@
 ---
 title: "AI-First Engineering"
 type: theme
-source_count: 1
+source_count: 2
 tags: [ai-first-engineering, harness-engineering, engineering-management, software-development]
 ---
 
@@ -21,9 +21,13 @@ The human implications are significant: management time collapses, team anxiety 
 
 Pang also argues that AI-first must extend beyond engineering into every function (marketing, product, growth) — if one function operates at agent speed and another at human speed, the human-speed function constrains everything.
 
+[[Index]]'s story ([[How Index Built an AI-First Data Analytics Platform with Mastra]]) illustrates a different path: rather than building AI-first from scratch, they're **layering AI onto a mature product** with 1,000+ existing customers. Their approach is to add a conversational agent layer on top of their existing drag-and-drop BI platform, powered by [[Mastra]]. This represents a product-level AI-first transition — the fundamental interface shifts from point-and-click to natural language, while the underlying data access layer remains the same.
+
+Framework choice is a practical dimension of AI-first engineering: Index's switch from LangChain to Mastra for TypeScript-native type safety and opinionated design patterns reflects the principle that the harness around agents matters. An opinionated framework that reduces cognitive load aligns with the harness engineering concept — the developer's job is to direct agents, not fight infrastructure.
+
 ## Contradictions
 
-_None yet — only one source._
+_None identified._
 
 ## Open Questions
 
@@ -35,3 +39,4 @@ _None yet — only one source._
 ## Sources
 
 - [[Chat to Create AI Agents Ready to Work for You]]
+- [[How Index Built an AI-First Data Analytics Platform with Mastra]]

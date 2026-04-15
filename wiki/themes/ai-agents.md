@@ -1,7 +1,7 @@
 ---
 title: "AI Agents"
 type: theme
-source_count: 1
+source_count: 2
 tags: [ai-agents, autonomous-systems, agent-platforms]
 ---
 
@@ -19,9 +19,15 @@ Multiple independent teams (OpenAI, Anthropic, and others) have converged on com
 
 The vision extends to one-person companies: if one architect with agents can do the work of 100 people, many companies won't need a second employee.
 
+[[Index]]'s implementation ([[How Index Built an AI-First Data Analytics Platform with Mastra]]) demonstrates a different agent pattern: a **supervisor agent architecture** where a central router coordinates specialized nested workflows and agents. Their system includes data analyst agents for SQL generation and execution, visualization workflows for chart creation, and API integration tools for third-party data sources. This contrasts with CREAO's full-lifecycle agents — Index's agents are focused on a specific domain (data analytics) and sit as a conversational layer on top of an existing product.
+
+A key enabler is **schema-aware agents**: Index's data access layer generates a unified schema across diverse sources (Salesforce, Stripe, PostHog, relational databases via BigQuery), and agents ingest this schema to produce accurate SQL. The consistent workflow — write SQL, get dataset, execute — makes agents more reliable by constraining their action space.
+
+The choice of agent framework matters practically: Index found that TypeScript-native frameworks like [[Mastra]] with strong type safety and built-in playgrounds significantly accelerated development compared to Python-first frameworks with TypeScript bindings (LangChain).
+
 ## Contradictions
 
-_None yet — only one source._
+_None identified._
 
 ## Open Questions
 
@@ -33,3 +39,4 @@ _None yet — only one source._
 ## Sources
 
 - [[Chat to Create AI Agents Ready to Work for You]]
+- [[How Index Built an AI-First Data Analytics Platform with Mastra]]

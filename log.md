@@ -13,3 +13,9 @@ Chronological record of all wiki operations. Each entry uses the format `## [YYY
 - Source: `raw/articles/Chat to create AI agents ready to work for you..md`
 - Pages created: [[Chat to Create AI Agents Ready to Work for You]], [[CREAO]], [[Peter Pang]], [[AI-First Engineering]], [[AI Agents]]
 - Pages updated: none
+
+## [2026-04-15] ingest | How Index Built an AI-First Data Analytics Platform with Mastra
+
+- Source: `raw/articles/How Index Built an AI-First Data Analytics Platform with Mastra.md`
+- Pages created: [[How Index Built an AI-First Data Analytics Platform with Mastra]], [[Index]], [[Mastra]]
+- Pages updated: [[AI Agents]], [[AI-First Engineering]]
