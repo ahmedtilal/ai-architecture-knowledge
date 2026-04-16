@@ -37,3 +37,9 @@ Chronological record of all wiki operations. Each entry uses the format `## [YYY
 - Source: `raw/articles/Resolvers The Routing Table for Intelligence.md`
 - Pages created: [[Resolvers: The Routing Table for Intelligence]]
 - Pages updated: [[Garry Tan]], [[AI Agents]], [[AI-First Engineering]]
+
+## [2026-04-16] ingest | The New Way To Build A Startup
+
+- Source: `raw/videos/The New Way To Build A Startup.md`
+- Pages created: [[The New Way To Build A Startup]], [[Y Combinator]]
+- Pages updated: [[Garry Tan]], [[AI Agents]], [[AI-First Engineering]]

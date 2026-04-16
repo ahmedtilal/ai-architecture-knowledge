@@ -1,8 +1,8 @@
 ---
 title: "AI Agents"
 type: theme
-source_count: 5
-tags: [ai-agents, autonomous-systems, agent-platforms]
+source_count: 6
+tags: [ai-agents, autonomous-systems, agent-platforms, ai-teammate]
 ---
 
 ## Overview
@@ -47,6 +47,8 @@ Tan's follow-up ([[Resolvers: The Routing Table for Intelligence]]) reveals the 
 
 Resolvers are **fractal** — they compose at every layer: skill resolvers (AGENTS.md maps tasks to skills), filing resolvers (RESOLVER.md maps content to directories), and context resolvers (internal routing within each skill). Claude Code already implements this pattern: every skill's description field is itself a resolver.
 
+[[The New Way To Build A Startup]] introduces a third operational archetype beyond full-SDLC agents (CREAO) and supervisor agents (Index): the **AI teammate** — an agent that operates as a full-time virtual employee across an entire product. Giga ML's "Atlas" is the canonical example: it can use browsers, edit policies, write code, and service accounts, which lets the company serve DoorDash and 10+ Fortune 500s (each handling 500k–1M calls/day) alongside a single human FTE. Where coding agents are measured in tasks-completed and supervisor agents in successful routings, AI teammates are measured in **accounts covered per human FTE**. This archetype complements rather than replaces the others; a 20x company often runs all three in parallel. A related pattern from the same source is **per-employee custom agents** (Phase Shift's approach): rather than one general-purpose teammate, each human documents their manual work and gets a bespoke agent tailored to their workflow — a bottom-up version of Tan's skill-file pattern deployed company-wide rather than inside a single engineer's harness.
+
 ## Contradictions
 
 _None identified._
@@ -67,3 +69,4 @@ _None identified._
 - [[Building an AI-Native Engineering Team – Codex]]
 - [[Thin Harness, Fat Skills]]
 - [[Resolvers: The Routing Table for Intelligence]]
+- [[The New Way To Build A Startup]]

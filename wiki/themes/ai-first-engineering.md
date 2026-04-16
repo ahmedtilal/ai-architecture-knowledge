@@ -1,8 +1,8 @@
 ---
 title: "AI-First Engineering"
 type: theme
-source_count: 5
-tags: [ai-first-engineering, harness-engineering, engineering-management, software-development]
+source_count: 6
+tags: [ai-first-engineering, harness-engineering, engineering-management, software-development, 20x-companies]
 ---
 
 ## Overview
@@ -43,18 +43,22 @@ Tan's follow-up ([[Resolvers: The Routing Table for Intelligence]]) deepens the 
 
 Concrete maintenance infrastructure includes: **trigger evals** (test suites of sample inputs with expected skill outputs), **check-resolvable** (a meta-skill that audits reachability — found 15% of capabilities were "dark" in Tan's 40+ skill system), and shared filing rules mandating every skill consult the resolver before writing. The endgame is self-healing resolvers that learn from observed task dispatch traffic via reinforcement learning. This directly addresses the question of how AGENTS.md configurations evolve: they must be actively maintained, tested, and eventually self-correcting.
 
+Tan's [[The New Way To Build A Startup]] extends AI-first engineering from the engineering org to the entire company. He calls these **"20x companies"** — tiny teams that beat 20x-larger incumbents by automating every internal function (engineering, support, marketing, sales, hiring, QA, ops, design) rather than just one or two. This is the company-scale analogue of what [[Peter Pang]] called for when he argued AI-first must extend beyond engineering: here it is operationalized with three reproducible patterns. First, the **AI teammate** — Giga ML's "Atlas" agent runs across the product (browsing, editing policies, writing code) and serves DoorDash plus 10+ Fortune 500s alongside a single human FTE. Second, the **unified AI source of truth** — Legion Health's care-ops interface pulls patient history, scheduling, insurance, and messages into one view, enabling 4x patient growth with zero net new hires (one clinical lead, one patient-support person, one billing person, where traditional healthcare has full call-center departments). Third, **custom per-employee agents** — Phase Shift (12 people, AR automation) asks employees to document their manual tasks and then builds bespoke agents for each workflow, which has let them avoid hiring for entire functions like design (they use Magic Patterns instead). The framing evolves Parker Conrad's "compound startup" from product breadth to internal automation breadth; leanness becomes the competitive moat, and not hiring the next department becomes a core strategy.
+
 ## Contradictions
 
 _None identified._
 
 ## Open Questions
 
-- How does AI-first engineering scale beyond small teams (25 people)? Does the Architect/Operator model hold at 100+ engineers?
+- How does AI-first engineering scale beyond small teams (25 people)? Does the Architect/Operator model hold at 100+ engineers? (The 20x companies thesis partially sidesteps this — don't scale to 100+.)
 - What happens when the Architect becomes a bottleneck — is there a way to distribute that role?
 - How do you handle the senior engineer transition without losing institutional knowledge?
 - Is "vibe coding" (prompting until something works) ever appropriate, or always an anti-pattern in production systems?
 - How do self-improving skill loops avoid drift — what prevents compounding rule additions from degrading skill quality over time?
 - What does the RL loop for self-healing resolvers look like in practice — how much traffic data is needed, and how do you prevent the resolver from over-fitting to recent patterns?
+- When do 20x companies *have* to hire? Are there functions that resist automation entirely, or does the frontier keep pushing outward?
+- How do you avoid bus-factor risk when critical institutional knowledge lives inside agent systems managed by a handful of people?
 
 ## Sources
 
@@ -63,3 +67,4 @@ _None identified._
 - [[Building an AI-Native Engineering Team – Codex]]
 - [[Thin Harness, Fat Skills]]
 - [[Resolvers: The Routing Table for Intelligence]]
+- [[The New Way To Build A Startup]]
