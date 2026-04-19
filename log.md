@@ -43,3 +43,9 @@ Chronological record of all wiki operations. Each entry uses the format `## [YYY
 - Source: `raw/videos/The New Way To Build A Startup.md`
 - Pages created: [[The New Way To Build A Startup]], [[Y Combinator]]
 - Pages updated: [[Garry Tan]], [[AI Agents]], [[AI-First Engineering]]
+
+## [2026-04-19] ingest | From PR Review Bot + ATAI CLI to an Autonomous Work Queue
+
+- Source: `raw/articles/From PR Review Bot + ATAI CLI to an Autonomous Work Queue.md` (moved from `Clippings/`)
+- Pages created: [[From PR Review Bot + ATAI CLI to an Autonomous Work Queue]], [[Karl Stoney]], [[Autotrader]]
+- Pages updated: [[AI Agents]], [[AI-First Engineering]], [[Wiki Index|index.md]]

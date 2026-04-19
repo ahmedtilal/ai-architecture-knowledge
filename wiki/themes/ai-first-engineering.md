@@ -1,8 +1,8 @@
 ---
 title: "AI-First Engineering"
 type: theme
-source_count: 6
-tags: [ai-first-engineering, harness-engineering, engineering-management, software-development, 20x-companies]
+source_count: 7
+tags: [ai-first-engineering, harness-engineering, engineering-management, software-development, 20x-companies, platform-engineering]
 ---
 
 ## Overview
@@ -45,13 +45,19 @@ Concrete maintenance infrastructure includes: **trigger evals** (test suites of 
 
 Tan's [[The New Way To Build A Startup]] extends AI-first engineering from the engineering org to the entire company. He calls these **"20x companies"** — tiny teams that beat 20x-larger incumbents by automating every internal function (engineering, support, marketing, sales, hiring, QA, ops, design) rather than just one or two. This is the company-scale analogue of what [[Peter Pang]] called for when he argued AI-first must extend beyond engineering: here it is operationalized with three reproducible patterns. First, the **AI teammate** — Giga ML's "Atlas" agent runs across the product (browsing, editing policies, writing code) and serves DoorDash plus 10+ Fortune 500s alongside a single human FTE. Second, the **unified AI source of truth** — Legion Health's care-ops interface pulls patient history, scheduling, insurance, and messages into one view, enabling 4x patient growth with zero net new hires (one clinical lead, one patient-support person, one billing person, where traditional healthcare has full call-center departments). Third, **custom per-employee agents** — Phase Shift (12 people, AR automation) asks employees to document their manual tasks and then builds bespoke agents for each workflow, which has let them avoid hiring for entire functions like design (they use Magic Patterns instead). The framing evolves Parker Conrad's "compound startup" from product breadth to internal automation breadth; leanness becomes the competitive moat, and not hiring the next department becomes a core strategy.
 
+[[Karl Stoney]]'s account from [[Autotrader]] ([[From PR Review Bot + ATAI CLI to an Autonomous Work Queue]]) reframes harness engineering through a **platform-engineering lens**: the harness is not a CLI script per developer but an org-wide queue, worker pool, and policy layer that any team can plug into. Where Tan's `~200`-line CLAUDE.md is a personal harness and Pang's CREAO is a company-scale process redesign, Stoney's `atai-api` is the **shared infrastructure** that sits between them — orchestration (intake, policy, scheduling, state) cleanly separated from execution (`atai` workers running `copilot-cli` on Kubernetes). The architectural lesson: agent platforms inherit the same separations that have always made systems scalable, and ad hoc per-trigger scripts collapse the moment a second ingestion source or a scheduled run is added.
+
+A second contribution is the **deliberate framing of measurement**. Stoney explicitly rejects "10x productivity" and "hours saved" calculations — even when his own numbers (e.g., "500 PR reviews/week × 30 min = 250 hours") would support them — and argues the only honest metric for an opt-in platform is **adoption**. He compares AI infrastructure to CI/CD and cloud: the goal was never to work fewer hours but to remove monotony so humans focus on judgment. This is a counter-voice to existing wiki sources that lean on multiplier framings (CREAO's 99% AI-written code, Tan's 20x companies) and gives the theme a more nuanced position on how to evaluate AI-first transitions.
+
+A third, often-overlooked dimension Stoney makes explicit: **agent reliability is downstream of platform legibility**. Autotrader's pre-existing investment in their Data Platform and Delivery Platform — first-class APIs that return deterministic answers about every service — is what lets their agents succeed. "AI doesn't have to guess anything." This concretises a thread implicit in Pang and Tan: the harness includes not just the prompt and tools but every internal API, dashboard, and CLI the agent might need to consult. Companies without that prior platform work will not get the same results from the same agent stack.
+
 ## Contradictions
 
-_None identified._
+**Contested:** [[Chat to Create AI Agents Ready to Work for You]] and [[The New Way To Build A Startup]] frame AI-first engineering through productivity multipliers (99% AI-written code; 20x companies) and treat per-FTE leverage as a defining outcome. [[From PR Review Bot + ATAI CLI to an Autonomous Work Queue]] explicitly rejects multiplier and "hours saved" framings as vanity metrics and argues that adoption of an opt-in platform is the only honest measure. The two views are not strictly logically incompatible — multipliers describe *outcomes*, adoption describes *evidence* — but they reflect a real disagreement about what makes an AI-first program credible.
 
 ## Open Questions
 
-- How does AI-first engineering scale beyond small teams (25 people)? Does the Architect/Operator model hold at 100+ engineers? (The 20x companies thesis partially sidesteps this — don't scale to 100+.)
+- How does AI-first engineering scale beyond small teams (25 people)? Does the Architect/Operator model hold at 100+ engineers? (The 20x companies thesis partially sidesteps this — don't scale to 100+. Autotrader's platform model offers a different answer: don't restructure roles, instead provide an internal agent platform that any team can consume.)
 - What happens when the Architect becomes a bottleneck — is there a way to distribute that role?
 - How do you handle the senior engineer transition without losing institutional knowledge?
 - Is "vibe coding" (prompting until something works) ever appropriate, or always an anti-pattern in production systems?
@@ -59,6 +65,8 @@ _None identified._
 - What does the RL loop for self-healing resolvers look like in practice — how much traffic data is needed, and how do you prevent the resolver from over-fitting to recent patterns?
 - When do 20x companies *have* to hire? Are there functions that resist automation entirely, or does the frontier keep pushing outward?
 - How do you avoid bus-factor risk when critical institutional knowledge lives inside agent systems managed by a handful of people?
+- What is the right success metric for an internal agent platform — adoption (Stoney), tasks completed (CREAO), per-FTE leverage (Tan), or something else? Different metrics produce different platform decisions.
+- How transferable is Autotrader's queue-and-worker pattern to organisations *without* a mature underlying platform (deterministic service APIs, standardised CI/CD)? Stoney's claim is that the agent stack only works because the platforms below it work.
 
 ## Sources
 
@@ -68,3 +76,4 @@ _None identified._
 - [[Thin Harness, Fat Skills]]
 - [[Resolvers: The Routing Table for Intelligence]]
 - [[The New Way To Build A Startup]]
+- [[From PR Review Bot + ATAI CLI to an Autonomous Work Queue]]
